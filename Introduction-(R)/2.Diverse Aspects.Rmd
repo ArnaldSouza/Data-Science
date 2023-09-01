@@ -1,14 +1,14 @@
 Directory of work
-```{r}
+
 getwd()
 setwd("c:\\dados")
-```
+
 Object Type
-```{r}
+
 class(iris)
-```
+
 Save an object .
-```{r}
+
 #clone
 iristeste = iris
 #save
@@ -17,18 +17,18 @@ save(iristeste, file="iristeste.Rdata")
 rm(iristeste)
 #testing the removal
 iristeste
-```
+
 Load 
-```{r}
+
 #load the object of the disk
 load(file="iristeste.Rdata")
 #test
 iristeste
-```
+
 Vector e basic graphic
-```{r}
+
 x = c(12,72,108,168) #c -> combine
 y = c(-1,25,9,4)
 plot(x,y)
-```
+
 
