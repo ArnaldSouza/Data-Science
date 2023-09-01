@@ -1,35 +1,26 @@
-Head e Tail
-```{r}
+#Head e Tail
 esoph #default 6 rows
 head(esoph) #first
 tail(esoph) #last
 head(esoph, n=10) #10 rows
-```
-Dimensions
-```{r}
+
+#Dimensions
 dim(esoph) #returns number of rows and columns 
 dim(esoph)[1] #1 -> returns the number of rows , 2 -> return columns number 
-```
-Comprimento
-```{r}
+
+#Length
 #if used with a two-dimensional object also return columns 
 length(islands) #returns length
-```
-Nomes de Colunas
-```{r}
+
+
 colnames(esoph) #returns column name
-```
-Nome de Linhas
-```{r}
+
+
 rownames(esoph) #returns row name,if there's not a name it returns its index
-```
-Resumo
-```{r}
+
 summary(esoph) #some statistics from the dataset
-```
-Escolher Arquivo
-```{r}
+
 x = file.choose() #opens a dialog box to select the file
 x #returns the file path, facilitates dynamic access
-```
+
 
