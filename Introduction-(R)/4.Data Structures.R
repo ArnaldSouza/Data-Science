@@ -1,42 +1,38 @@
 
-Vectors
-```{r}
+#Vectors
 X = c(1,2,3,4,5,6) #index begin -> 1
 X
 X[1]
 X[1] = 15
 X[1]
-```
-Another types of vector
-```{r}
+
+#Another types of vector
 Y = c('a','b','c','d')
 Y
 Z = c(1L,2L,3L)
 Z
 class(Z) #class shows the vector data type
-```
-Matrix
-```{r}
+
+#Matrix
 VADeaths
 colnames(VADeaths)
 rownames(VADeaths)
-```
-Matrizes
-```{r}
+
+#Matrizes
+
 VADeaths[,1] #only column 1
 VADeaths[1,] #only row 1
 VADeaths[1:3,] #row 1 to 3 
 VADeaths[c(1,3,5),] #rows 1,3 and 5
-```
-Data Frame
-```{r}
+
+#Data Frame
+
 longley #works as a matrix and have different data types
 longley[,1:3]
 longley$Unemployed #access column with $
 longley['Unemployed'] # also putting the column name
-```
-Lists
-```{r}
+
+#Lists
 ability.cov
 #acessing elements
 ability.cov$cov
@@ -46,7 +42,7 @@ class(ability.cov$cov)
 class(ability.cov$center)
 #acessing element inside the list
 ability.cov$cov[,1:3]
-```
+
 Factors
 ```{r}
 state.region #  "categorical variables"
