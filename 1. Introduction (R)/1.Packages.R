@@ -11,5 +11,3 @@ detach("package:e1071", unload=TRUE)
 remove.packages("e1071")
 
 plot(iris[,1:4])
-
-
