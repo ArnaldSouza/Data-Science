@@ -1,5 +1,5 @@
 #import data, empty string, string as factors
-data = read.csv("Churn.csv", sep = ";", na.strings="", stringsAsFactors=T)
+data = read.csv("./data/Churn.csv", sep = ";", na.strings="", stringsAsFactors=T)
 head(data)
 summary(data)
 
