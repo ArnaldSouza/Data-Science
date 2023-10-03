@@ -1,4 +1,4 @@
-#import data, empty string as NA, string as factors
+#import data, empty string as NA, strng as factors
 data = read.csv("./data/tempo.csv", sep = ";", na.string="", stringsAsFactors=T)
 head(data)
 summary(data)
@@ -16,8 +16,66 @@ counts = table(data$Jogar)
 counts
 barplot(counts, main = "Jogar", xlab="Jogar")
 
+
 #explore numerical columns
 #temperatura
 summary(data$Temperatura)
 boxplot(data$Temperatura)
 hist(data$Temperatura)
+#umidade
+summary(data$Umidade)
+boxplot(data$Umidade)
+hist(data$Umidade)
+
+#Missing values
+data[!complete.cases(data),]
+
+#Aparencia, domain processing 
+summary(data$Aparencia)
+#there is no NA
+data[is.na(data$Aparencia),]
+#option -> fill with median and substiution ith mode
+data[data$Aparencia == 'menos', ]$Aparencia = 'sol' 
+#find again Aparencias
+summary(data$Aparencia)
+#remove levels not used 
+data$Aparencia = factor(data$Aparencia)
+summary(data$Aparencia)
+
+
+#Temperature domain processingsummary(data$Temperatura)
+#out of  numerical domain - check abnormal temperatures
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
+#there's no NA
+data[is.na(data$Temperatura)]
+#fill with median
+median(data$Temperatura)
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura = median(data$Temperatura)
+#check again
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
+summary(data$Temperatura)
+
+
+#Umidade , domain and NA
+summary(data$Umidade)
+#out of  numerical domain - check abnormal data
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
+#checking NA's
+data[is.na(data$Umidade),]
+#NA -> median
+data[is.na(data$Umidade),]$Umidade = median(data$Umidade, na.rm = T)
+#substitution
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade = median(data$Umidade)
+#check abnormal daa again 
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
+summary(data$Umidade)
+
+
+#Vento NA's
+summary(data$Vento)
+data[is.na(data$Vento),]
+#replace
+data[is.na(data$Vento),]$Vento = 'FALSO'
+#Check NA's
+data[is.na(data$Vento),]
+summary(data$Vento)
