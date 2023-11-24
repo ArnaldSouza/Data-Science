@@ -188,7 +188,7 @@ x
 
 #Excel
 
-dados = read.xlsx("home/arnald/",sheet= 1)
+dados = read.xlsx("dados/Credit.xlsx",sheet= 1)
 #sheet indicates the desired worksheet
 dados
 ```
