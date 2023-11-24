@@ -1,15 +1,18 @@
-#import data, empty string, string as factors
-data = read.csv("./data/Churn.csv", sep = ";", na.strings="", stringsAsFactors=T)
+Import data, empty string, string as factors
+```{r}
+data = read.csv("data/Churn.csv", sep = ";", na.strings="", stringsAsFactors=T)
 head(data)
 summary(data)
-
-#columns
-#give correct names to the columns 
+```
+Columns
+Give correct names to the columns
+```{r}
 colnames(data) = c("ID", "Score", "State", "Gender", "Age", "Patrimony", "Balance",
  "Products", "CreditCard", "Active", "Salary", "Out")
 head(data)
-
-#explore data, categorical columns
+```
+Explore Data categorical columns
+```{r}
 #States
 counts = table(data$State)
 barplot(counts, main = "State", xlab = "State")
@@ -18,8 +21,10 @@ barplot(counts, main = "State", xlab = "State")
 counts = table(data$Gender)
 barplot(counts, main = "Gender", xlab = "Gender")
 
+```
+Explore numerical columns
 
-#explore numerical columns 
+```{r}
 #Score
 summary(data$Score)
 hist(data$Score)
@@ -41,9 +46,9 @@ boxplot(data$Salary, outline = F)
 
 #missing values - NAs
 data[!complete.cases(data),]
-
-
-#PROCESSING
+```
+Processing
+```{r}
 #Salary
 summary(data$Salary)
 #see median
@@ -52,8 +57,9 @@ median(data$Salary, na.rm = T)
 data[is.na(data$Salary),]$Salary = median(data$Salary, na.rm = T)
 #check if already exists NA
 data[!complete.cases(data$Salary),]
-
-
+```
+Gender
+```{r}
 #lack of gender standard
 unique(data$Gender)
 summary(data$Gender)
@@ -67,8 +73,10 @@ summary(data$Gender)
 data$Gender = factor(data$Gender)
 #visualize again
 summary(data$Gender)
+```
+Age
 
-
+```{r}
 #Ages out of domain
 summary(data$Age)
 #check abnormals ages
@@ -82,7 +90,10 @@ data[data$Age < 0 | data$Age > 110,]$Age = median(data$Age)
 data[data$Age < 0 | data$Age > 110,]$Age    
 summary(data$Age)
 
+```
+Data
 
+```{r}
 #duplicated data
 #finding by ID
 x = data[duplicated(data$ID),]
@@ -95,7 +106,11 @@ data[data$ID == x$ID,]
 #check again duplicated
 x = data[duplicated(data$ID),]
 x
+```
 
+State
+
+```{r}
 
 #State out of domain
 #out of domain - categorical
@@ -108,8 +123,10 @@ summary(data$State)
 data$State = factor(data$State)
 summary(data$State)
 
+```
 
-#Outliers
+Outliers
+```{r}
 #outliers, creating a parameter with standard deviation
 std = sd(data$Salary, na.rm = T)
 std
@@ -126,3 +143,5 @@ data[data$Salary >= 2*std,]$Salary = median(data$Salary)
 #check if there's outliers
 data[data$Salary >= 2*std,]$Salary
 boxplot(data$Salary)
+```
+

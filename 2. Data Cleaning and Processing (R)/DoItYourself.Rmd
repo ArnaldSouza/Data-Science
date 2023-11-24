@@ -1,9 +1,14 @@
+DO IT YOUSELF
+
+```{r}
 #import data, empty string as NA, strng as factors
 data = read.csv("./data/tempo.csv", sep = ";", na.string="", stringsAsFactors=T)
 head(data)
 summary(data)
 
-#explore data and data appearance
+```
+Explore data and data appearance
+```{r}
 #appearance
 counts = table(data$Aparencia)
 counts
@@ -15,9 +20,9 @@ barplot(counts, main = "Vento", xlab="Vento")
 counts = table(data$Jogar)
 counts
 barplot(counts, main = "Jogar", xlab="Jogar")
-
-
-#explore numerical columns
+```
+Explore Numerical Columns
+```{r}
 #temperatura
 summary(data$Temperatura)
 boxplot(data$Temperatura)
@@ -26,11 +31,13 @@ hist(data$Temperatura)
 summary(data$Umidade)
 boxplot(data$Umidade)
 hist(data$Umidade)
-
-#Missing values
+```
+Missing values
+```{r}
 data[!complete.cases(data),]
-
-#Aparencia, domain processing 
+```
+Aparencia, domain processing 
+```{r}
 summary(data$Aparencia)
 #there is no NA
 data[is.na(data$Aparencia),]
@@ -42,8 +49,10 @@ summary(data$Aparencia)
 data$Aparencia = factor(data$Aparencia)
 summary(data$Aparencia)
 
-
-#Temperature domain processingsummary(data$Temperatura)
+```
+Temperature domain
+```{r}
+summary(data$Temperatura)
 #out of  numerical domain - check abnormal temperatures
 data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
 #there's no NA
@@ -54,9 +63,9 @@ data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura = median(da
 #check again
 data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
 summary(data$Temperatura)
-
-
-#Umidade , domain and NA
+```
+Umidade domain
+```{r}
 summary(data$Umidade)
 #out of  numerical domain - check abnormal data
 data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
@@ -69,9 +78,9 @@ data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade = median(data$Umidade)
 #check abnormal daa again 
 data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
 summary(data$Umidade)
-
-
-#Vento NA's
+```
+Vento NA's
+```{r}
 summary(data$Vento)
 data[is.na(data$Vento),]
 #replace
@@ -79,3 +88,5 @@ data[is.na(data$Vento),]$Vento = 'FALSO'
 #Check NA's
 data[is.na(data$Vento),]
 summary(data$Vento)
+```
+
