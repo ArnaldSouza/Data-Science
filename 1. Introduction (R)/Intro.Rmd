@@ -1,0 +1,233 @@
+Class 1 to 10
+
+Packages
+```{r}
+install.packages("e1071")
+library(e1071)
+
+#unload package from memory
+detach("package:e1071", unload=TRUE)
+#remove/uninstall
+remove.packages("e1071")
+
+plot(iris[,1:4])
+```
+Diverse Aspects
+```{r}
+#Directory of work
+getwd()
+#setwd("/home/arnald/desktop")
+
+#Object Type
+class(iris)
+
+#Save an object .
+#clone
+iristeste = iris
+#save
+save(iristeste, file="iristeste.Rdata")
+#removing from R
+rm(iristeste)
+#testing the removal
+iristeste
+
+#Load 
+#load the object of the disk
+load(file="iristeste.Rdata")
+#test
+iristeste
+
+#Vector e basic graphic
+x = c(12,72,108,168) #c -> combine
+y = c(-1,25,9,4)
+plot(x,y)
+```
+Data Types and Operators
+```{r}
+#numeric implicit declaration
+delta = 8
+class(delta)
+
+#L declared as int
+
+delta = 8L
+class(delta)
+
+#Another types
+
+logico = TRUE #all caps or just the initial
+logico = F
+caractere = "Text" #single or double quotes
+caractere = 'Text'
+class(caractere)
+class(logico)
+
+#math operations
+
+c = 3
+d = 5
+(c + d) ** d
+e = (c + d) * d
+print(e)
+
+#Logical tests
+a = 1
+b = 2
+a < b
+a == b
+
+
+#square root
+sqrt(2500)# doesn't need a package, already exist a package for math operations
+
+```
+
+Data Structures
+```{r}
+
+#Vectors
+X = c(1,2,3,4,5,6) #index begin -> 1
+X
+X[1]
+X[1] = 15
+X[1]
+
+#Another types of vector
+Y = c('a','b','c','d')
+Y
+Z = c(1L,2L,3L)
+Z
+class(Z) #class shows the vector data type
+
+#Matrix
+VADeaths
+colnames(VADeaths)
+rownames(VADeaths)
+
+#Matrizes
+
+VADeaths[,1] #only column 1
+VADeaths[1,] #only row 1
+VADeaths[1:3,] #row 1 to 3 
+VADeaths[c(1,3,5),] #rows 1,3 and 5
+
+#Data Frame
+
+longley #works as a matrix and have different data types
+longley[,1:3]
+longley$Unemployed #access column with $
+longley['Unemployed'] # also putting the column name
+
+#Lists
+ability.cov
+#acessing elements
+ability.cov$cov
+ability.cov[1]
+#checking that objects are different
+class(ability.cov$cov)
+class(ability.cov$center)
+#acessing element inside the list
+ability.cov$cov[,1:3]
+
+#Factors
+state.region #  "categorical variables"
+
+```
+Functions
+```{r}
+getwd()
+sd # without parentheses shows how the code works and the function code
+head
+head(x=iris, n=2)
+head(iris)
+head(iris,2)
+#head(n=22)  'x' is mandatory, so it is not possible to execute
+
+```
+Help
+```{r}
+help(sd)
+head(iris) #it also works by placing the cursor over the function and pressing F1
+```
+Main functions
+```{r}
+#Head e Tail
+esoph #default 6 rows
+head(esoph) #first
+tail(esoph) #last
+head(esoph, n=10) #10 rows
+
+#Dimensions
+dim(esoph) #returns number of rows and columns 
+dim(esoph)[1] #1 -> returns the number of rows , 2 -> return columns number 
+
+#Length
+#if used with a two-dimensional object also return columns 
+length(islands) #returns length
+
+colnames(esoph) #returns column name
+rownames(esoph) #returns row name,if there's not a name it returns its index
+
+summary(esoph) #some statistics from the dataset
+
+x = file.choose() #opens a dialog box to select the file
+x #returns the file path, facilitates dynamic access
+
+```
+Importing Data
+```{r}
+install.packages("openxlsx")
+library(openxlsx)
+
+#text
+x = read.csv(file.choose(),header = TRUE, sep = ",") 
+#header says if the first line of the file is the name of the columns
+x
+x = read.csv("dados/Credit.csv",header = TRUE, sep = ",")
+x
+
+#Excel
+
+dados = read.xlsx("home/arnald/",sheet= 1)
+#sheet indicates the desired worksheet
+dados
+```
+Programming
+```{r}
+
+#IF
+a = 10
+b = 5
+if (a < b){
+  print("True")
+}else{
+  print("False") 
+}
+
+#IFELSE
+
+x = ifelse(a <= 10,"A is greater than or equal to ten","A is not greater than ten")
+x
+
+#For
+for (i in 1:10) {
+  print(i)
+  }
+
+#While
+a = 6
+while(a <= 10)
+{
+  print(a)
+  a = a+2
+}
+
+#Function
+evenorodd <- function(x) {  
+  return(ifelse(x%%2==0,"Even","Odd"))  
+}
+
+evenorodd(7)
+evenorodd(14)
+```
+
