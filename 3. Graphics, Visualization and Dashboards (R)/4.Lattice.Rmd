@@ -1,0 +1,68 @@
+Lattice
+```{r}
+#this package doesn't need to install!
+library(lattice)
+```
+Boxplot
+```{r}
+bwplot(trees$Volume)
+bwplot(trees$Volume, main="Trees",xlab="Volume")
+```
+Histogram
+Aspect is the proportion, nint is the number of breaks, type: percent, count, density
+```{r}
+histogram(trees$Volume, main="Trees",xlab="Volume",aspect=1, type = "percent", nint=5 )
+```
+Conditional Histogram
+```{r}
+#Weight of chickens according to diet
+chickwts
+#histogram
+histogram(chickwts$weight)
+#we aggregate data
+aggregate(chickwts$weight, by=list(chickwts$feed), FUN=sum)
+#Conditional histogram
+histogram( ~weight | feed, data=chickwts)
+```
+Conditional scatterplot
+CO2, six plants in two locations, refrigerated or not overnight
+```{r}
+#CO2, conc: concentration of co2, uptake: capture of co2
+CO2
+xyplot(CO2$conc ~  CO2$uptake)
+#type is the origin
+xyplot(CO2$conc ~  CO2$uptake | CO2$Type)
+#chilled or not
+xyplot(CO2$conc ~  CO2$uptake | CO2$Treatment)
+```
+esophageal cancer
+```{r}
+esoph
+dotplot(esoph$alcgp ~ esoph$ncontrols, data=esoph)
+dotplot(esoph$alcgp ~ esoph$ncontrols | esoph$tobgp)
+```
+Scatter matrix
+```{r}
+splom(~CO2[4:5] | CO2$Type, CO2)
+```
+Conditional Density 
+```{r}
+densityplot(~CO2$conc | CO2$Treatment, plot.points=FALSE)
+densityplot(CO2$conc)
+densityplot(~CO2$conc | CO2$Treatment)
+densityplot(~CO2$conc | CO2$Treatment, plot.points=FALSE)
+```
+3D Graphic
+Spray to repel bees
+```{r}
+OrchardSprays
+cloud(decrease ~  rowpos * colpos, data=OrchardSprays)
+cloud(decrease ~  rowpos * colpos, groups=treatment, data=OrchardSprays)
+```
+Level plot
+Circumference, width and volume of trees
+```{r}
+trees
+levelplot(Girth ~ Height * Volume, data=trees)
+```
+
