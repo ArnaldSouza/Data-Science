@@ -1,4 +1,5 @@
 Do It Yourself
+Perform an Exploratory Data Analysis process to gain knowledge/understanding of this data
 ```{r}
 #color palette
 install.packages("RColorBrewer")
