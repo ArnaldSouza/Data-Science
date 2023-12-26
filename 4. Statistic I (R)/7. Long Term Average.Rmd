@@ -10,7 +10,7 @@ mean(x)
 
 Big Sample
 ```{r}
-x = sample(1:6, 1000, replace = TRUE)
+x = sample(1:6, 10000, replace = TRUE)
 mean(x)
 ```
 
