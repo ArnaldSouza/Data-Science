@@ -1,0 +1,31 @@
+Centrality and variability measures
+Players data
+```{r}
+players = c(40000, 18000, 12000, 250000, 30000, 140000, 300000, 40000, 800000)
+```
+Mean
+```{r}
+mean(players)
+```
+Median
+```{r}
+median(players)
+```
+Quartiles
+```{r}
+q = quantile(players)
+q
+```
+3rd Quartile
+```{r}
+q[4]
+```
+standard deviation
+```{r}
+sd(players)
+```
+summary
+```{r}
+summary(players)
+```
+

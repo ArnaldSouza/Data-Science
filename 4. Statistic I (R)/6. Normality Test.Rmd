@@ -1,0 +1,48 @@
+Normality tests
+Repeat experiment
+```{r}
+set.seed(123)
+```
+generates 1000 variables normally distributed
+```{r}
+x = rnorm(1000)
+```
+QQ graphic
+```{r}
+#run with CTRL + SHIFT + ENTER
+qqnorm(x)
+#line
+qqline(x)
+```
+Shapiro Test
+p-value > 0.5, there is no evidence to confirm the null hypothesis of normally distributed data
+```{r}
+shapiro.test(x)
+```
+histogram with density line
+```{r}
+#run with CRTL+SHIFT+ENTER
+hist(x, main="")
+par(new=TRUE)
+plot(density(x), ylab = "", xlab="", axes = F, lwd = 2.5)
+```
+non-normally distributed data
+```{r}
+#install.packages("semTools")
+library("semTools")
+m = mvrnonnorm(1000, c(1, 2), matrix(c(10, 2, 2, 5), 2, 2), skewness = c(5, 2), kurtosis = c(3,3))
+
+qqnorm(m)
+qqline(m)
+```
+
+```{r}
+shapiro.test(m)
+```
+```{r}
+#run all chunck (CRTL+SHIFT+ENTER)
+hist(m, main="")
+par(new=TRUE)
+plot(density(m), ylab="", xlab="", axes=F, lwd=2.5)
+```
+

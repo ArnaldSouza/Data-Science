@@ -1,0 +1,27 @@
+stratified sampling
+```{r}
+install.packages("sampling")
+library("sampling")
+```
+Proportion
+```{r}
+prop = 25
+```
+srswor simple sample no replace, srswor with replacement, poisson, systematic 
+size order is on data set
+```{r}
+irisSample2 = strata(data = iris, stratanames = c("Species"), size = c(rep(prop, 3)), method = "srswor")
+summary(irisSample2)
+```
+infertility data
+```{r}
+infert
+summary(infert)
+```
+stratified sampling od education
+```{r}
+sample = strata( data = infert, stratanames=c("education"), size=c(5,48,47), method = "srswor")
+sample 
+summary(sample)
+```
+

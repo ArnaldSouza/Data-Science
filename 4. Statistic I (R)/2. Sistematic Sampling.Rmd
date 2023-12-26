@@ -1,0 +1,24 @@
+ Systematic Sampling
+```{r}
+install.packages("TeachingSampling")
+library("TeachingSampling")
+```
+ Systematic Sampling, length 150, 10 groups
+```{r}
+sample = S.SY(150,10)
+sample
+```
+ Length
+```{r}
+dim(sample)
+```
+ Using on iris
+```{r}
+irisSample = iris[sample,]
+```
+ Checking
+```{r}
+irisSample
+```
+ 
+ 
