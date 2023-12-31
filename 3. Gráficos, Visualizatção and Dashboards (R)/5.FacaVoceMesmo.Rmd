@@ -1,0 +1,59 @@
+Faca voce mesmo
+Execute um processo de análise exploratória de dados para obter conhecimento/compreensão desses dados
+```{r}
+#color palette
+install.packages("RColorBrewer")
+library("RColorBrewer")
+```
+
+
+```{r}
+data = read.csv('data.csv', sep=";")
+head(data)
+```
+
+
+```{r}
+summary(data$VALOREMPENHO)
+summary(data$PIB)
+```
+
+
+```{r warning=FALSE}
+boxplot(data$VALOREMPENHO, main="Valores de Empenho", col = brewer.pal(n = 3, name = "Paired"), outline = F )
+boxplot(data$PIB ,main="Valores de PIB", col = brewer.pal(n = 3, name = "Pastel1"), outline = F )
+hist(data$VALOREMPENHO,main="Valores de Empenho", col = brewer.pal(n = 3, name = "Paired"))
+hist(data$PIB,main="Valores de PIB", col = brewer.pal(n = 3, name = "Pastel1"), outline = F )
+```
+
+
+```{r}
+#Procurar pelos melhores valores de empenhos
+#executar com ctrl + shif + enter
+Mempenho = head(data[order(-data$VALOREMPENHO),],10)
+barplot(Mempenho$VALOREMPENHO, col=brewer.pal(n = 10, name = "RdBu"),las=2,main = "Maiores Empenhos")
+legend("topright",legend=Mempenho$MUNICIPIO,col = brewer.pal(n = 10, name = "RdBu"), lty=1:2, cex=0.8, ncol = 2,lwd=4)
+box()
+```
+
+
+```{r}
+#prcourar os melhores valores de PIB
+#executar com ctrl + shif + enter
+Mpibs =   head(data[order(-data$PIB),],10)
+barplot(Mpibs$PIB,col=brewer.pal(n = 10, name = "Spectral"),las=2,main = "Maiores PIBS")
+legend("topright",legend=Mempenho$MUNICIPIO,col = brewer.pal(n = 10, name = "Spectral"), lty=1:2, cex=0.8, ncol = 2,lwd=4)
+box()
+```
+
+
+```{r}
+#Relacionamento entre Pib e empenho
+#calcular a % do pib comprometida
+data$PROPORCAO =   data$VALOREMPENHO  / data$PIB 
+Mprop = head(data[order(-data$PROPORCAO),],10)
+barplot(Mprop$PROPORCAO,col=brewer.pal(n = 10, name = "Spectral"),las=2,main = "Maiores Gastos em Proporção ao PIB")
+legend("topright",legend=Mprop$MUNICIPIO,col = brewer.pal(n = 10, name = "Spectral"), lty=1:2, cex=0.8, ncol = 2,lwd=4)
+box()
+
+```

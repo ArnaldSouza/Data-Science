@@ -1,0 +1,60 @@
+Faça você mesmo
+
+Crie duas variáveis, Ana e Paulo e atribua a eles o valor de suas udade, respectivamente 8 e 12 anos. As variáveis devem ser do tipo inteiro. Imprima no console "A menina é mais velha" ou "O menino é mais velho" como o resultado de um teste lógico.
+```{r}
+Ana = 8L
+Paulo = 12L
+
+ifelse(Ana > Paulo,"A menina é mais velha", "O menino é mais velho")
+
+```
+
+BOD é um obejto existente no R. Confira qual a classe desse objeto 
+```{r}
+class(BOD)
+```
+Crie um vetor que guarda os numeros de 1 a 10 e depois imprima os valores pares
+```{r}
+vetor = c(1,2,3,4,5,6,7,8,9,10)
+n = 1
+while(n<=10){
+  
+  if(vetor[n]%%2==0){
+   print(vetor[n])
+  }
+  
+  n = n+1
+}
+```
+Women é um datafram existente no R. Imprima as 10 linhas finais 
+
+```{r}
+tail(women, n=10)
+```
+Use sa função R's plot para produzir uma impressão dos atributos Sepal.Width e Petal.Length do dataset Iris. O gráfico deve imprimir apenas as linhas de 50 a 100.
+```{r}
+plot(iris[50:100,2:3])
+```
+Crie dois vetores de tamanhos iguais, some posições equivalentes nos vetores e imprima o resultado.
+```{r}
+vec1 = c(1,6,8,15)
+vec2 = c(-5,3,-52,147)
+vec = vec2 + vec1
+vec
+```
+Imprima o numero de linhas, colunas, nome das linhas e nome das colunas do dataset CO2
+```{r}
+
+CO2
+rows = dim(CO2)[1]
+columns = dim(CO2)[2]
+
+
+cat("The number of rows is",rows,"\n")
+cat("The number of columns is",columns,"\n")
+
+colnames(CO2)
+rownames(CO2)
+         
+```
+

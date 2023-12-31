@@ -1,0 +1,31 @@
+Medidas de CEntralidade e Dispersão
+Dados dos jogadores
+```{r}
+players = c(40000, 18000, 12000, 250000, 30000, 140000, 300000, 40000, 800000)
+```
+Média
+```{r}
+mean(players)
+```
+Mediana
+```{r}
+median(players)
+```
+Quartil
+```{r}
+q = quantile(players)
+q
+```
+3º Quartil
+```{r}
+q[4]
+```
+desvio padrão
+```{r}
+sd(players)
+```
+resumo dos dados
+```{r}
+summary(players)
+```
+

@@ -1,0 +1,29 @@
+Teorema central do limite
+```{r}
+options(warn=-1)
+install.packages("semTools")
+library("semTools")
+```
+Inicializar um vetor
+```{r}
+z = rep(0,500)
+```
+Gerar amostras
+```{r}
+for( i in 1:500){
+  m = mvrnonnorm(1000, c(1, 2), matrix(c(10, 2, 2, 5), 2, 2), skewness = c(5, 2), kurtosis = c(3,3))
+  
+  #records the average of the samples
+  z[i] = mean(m)
+  
+  #print the 3 three
+  if(i < 4){
+    hist(m, breaks = 50, main = paste0("Histogram", i))
+  }
+}
+```
+Imprimir a distribuição da media da amostra
+```{r}
+hist(z)
+```
+

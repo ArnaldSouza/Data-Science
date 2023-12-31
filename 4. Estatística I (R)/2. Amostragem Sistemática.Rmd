@@ -1,0 +1,24 @@
+Amostragem Sistematica Systematic Sampling
+```{r}
+install.packages("TeachingSampling")
+library("TeachingSampling")
+```
+ Amostragem sistematica, tamanho 150, 10 grupos
+```{r}
+sample = S.SY(150,10)
+sample
+```
+Tamanho
+```{r}
+dim(sample)
+```
+ Usando na iris
+```{r}
+irisSample = iris[sample,]
+```
+ Verificando
+```{r}
+irisSample
+```
+ 
+ 

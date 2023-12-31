@@ -1,0 +1,27 @@
+Amostragem estratificada
+```{r}
+install.packages("sampling")
+library("sampling")
+```
+Proporção
+```{r}
+prop = 25
+```
+srswor amostragem simples sem reposição, srswor com reposição, poisson, sistemática 
+ordem do tamanho está no conjunto de dados
+```{r}
+irisSample2 = strata(data = iris, stratanames = c("Species"), size = c(rep(prop, 3)), method = "srswor")
+summary(irisSample2)
+```
+dados de infertilidade
+```{r}
+infert
+summary(infert)
+```
+amostragem estratificada de educação
+```{r}
+sample = strata( data = infert, stratanames=c("education"), size=c(5,48,47), method = "srswor")
+sample 
+summary(sample)
+```
+

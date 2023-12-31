@@ -1,0 +1,233 @@
+Class 1 to 10
+
+pacotes
+```{r}
+install.packages("e1071")
+library(e1071)
+
+#descarregar pacote da memória
+detach("package:e1071", unload=TRUE)
+#remover/instalar
+remove.packages("e1071")
+
+plot(iris[,1:4])
+```
+Apectos diversos
+```{r}
+#diretório de trabalho
+getwd()
+#setwd("/home/arnald/desktop")
+
+#tipo de objeto
+class(iris)
+
+#salvar um objeto.
+#clonar
+iristeste = iris
+#salvar
+save(iristeste, file="iristeste.Rdata")
+#removendo do R
+rm(iristeste)
+#testando a remoção
+iristeste
+
+#carregar
+#carregar o objeto do disco
+load(file="iristeste.Rdata")
+#testar
+iristeste
+
+#vetor e gráfico básico
+x = c(12,72,108,168) #c -> combine
+y = c(-1,25,9,4)
+plot(x,y)
+```
+Tipo de dados e operadores
+```{r}
+#declaração implicita numerica
+delta = 8
+class(delta)
+
+#L celara como int
+
+delta = 8L
+class(delta)
+
+#Outros tipos
+
+logico = TRUE #tudo em letra maiuscula ou apenas a inicial
+logico = F
+caractere = "Text" #aspas duplas ou simples
+caractere = 'Text'
+class(caractere)
+class(logico)
+
+#operações matemáticas
+
+c = 3
+d = 5
+(c + d) ** d
+e = (c + d) * d
+print(e)
+
+#Testes logicos
+a = 1
+b = 2
+a < b
+a == b
+
+
+#raiz quadrada
+sqrt(2500)#não precisa de um pacote, já existe um pacote padrão para operações matematicas
+
+```
+
+Estrutura de dados
+```{r}
+
+#Vetores
+X = c(1,2,3,4,5,6) #index começa em 1
+X
+X[1]
+X[1] = 15
+X[1]
+
+#Outros tipos de vetor
+Y = c('a','b','c','d')
+Y
+Z = c(1L,2L,3L)
+Z
+class(Z) #classe mostra o tipo de dado do vetor
+
+#Matriz
+VADeaths
+colnames(VADeaths)
+rownames(VADeaths)
+
+#Matrizes
+
+VADeaths[,1] #coluna 1
+VADeaths[1,] #linha 1
+VADeaths[1:3,] #linha 1 a 3 
+VADeaths[c(1,3,5),] #linhas 1,3 e 5
+
+#Data Frame
+
+longley #funciona como uma matriz e tem diferente tipos de dadoss
+longley[,1:3]
+longley$Unemployed #acessa coluna com $
+longley['Unemployed'] #também colocando o nome da coluna
+
+#Lisats
+ability.cov
+#acessando elementos
+ability.cov$cov
+ability.cov[1]
+#checando se os objetos são diferentes
+class(ability.cov$cov)
+class(ability.cov$center)
+#acessando elementos dentro da lista
+ability.cov$cov[,1:3]
+
+#Factors
+state.region #  "variáveis categoricas"
+
+```
+Funções
+```{r}
+getwd()
+sd # sem parenteses mostra como o código funciona e o código da função
+head
+head(x=iris, n=2)
+head(iris)
+head(iris,2)
+#head(n=22)  'x' é obrigatorio, se não fica impossibilitado de executar
+
+```
+Ajuda
+```{r}
+help(sd)
+head(iris) #também funciona colocando o cursor sobre a função e pressionando F1
+```
+Funções principais
+```{r}
+#Head e Tail
+esoph #padrão 6 linhas
+head(esoph) #primeiras
+tail(esoph) #ultimas
+head(esoph, n=10) #10 linhas
+
+#Dimensões
+dim(esoph) #retorna o numero de linhas e colunas 
+dim(esoph)[1] #1 -> retorna o numero de linhas, 2 -> retorna o numero de colunas 
+
+#Length
+#se usado com um objeto bidimensional também retorna colunas 
+length(islands) #retorna o tamanho
+
+colnames(esoph) #returna o nome da coluna
+rownames(esoph) #retorna o nome da linha, se a linha não tem nome retorna seu index
+
+summary(esoph) #algumas estatísticas do dataset
+
+x = file.choose() #abre um caixa de diálogo para selecionar o arquivo
+x #retorna o caminho da imagem, facilita o acesso dinamico
+
+```
+Importando dados
+```{r}
+install.packages("openxlsx")
+library(openxlsx)
+
+#text
+x = read.csv(file.choose(),header = TRUE, sep = ",") 
+#header fala se a primiera linha do arquivo é o nome das colunas
+x
+x = read.csv("dados/Credit.csv",header = TRUE, sep = ",")
+x
+
+#Excel
+
+dados = read.xlsx("dados/Credit.xlsx",sheet= 1)
+#sheet indica a planilha desejada
+dados
+```
+Programação
+```{r}
+
+#IF
+a = 10
+b = 5
+if (a < b){
+  print("True")
+}else{
+  print("False") 
+}
+
+#IFELSE
+
+x = ifelse(a <= 10,"A é maior ou igual a dez","A não é maior que dez")
+x
+
+#For
+for (i in 1:10) {
+  print(i)
+  }
+
+#While
+a = 6
+while(a <= 10)
+{
+  print(a)
+  a = a+2
+}
+
+#Function
+evenorodd <- function(x) {  
+  return(ifelse(x%%2==0,"Par","Impar"))  
+}
+
+evenorodd(7)
+evenorodd(14)
+```
+

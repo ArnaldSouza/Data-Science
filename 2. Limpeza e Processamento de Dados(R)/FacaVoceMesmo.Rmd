@@ -1,0 +1,92 @@
+Faça você mesmo
+
+```{r}
+#importar dados, empty string as NA, string as factors
+data = read.csv("./data/tempo.csv", sep = ";", na.string="", stringsAsFactors=T)
+head(data)
+summary(data)
+
+```
+Explorar dados e aparencia dos dados
+```{r}
+#aparencia
+counts = table(data$Aparencia)
+counts
+#tipo
+counts = table(data$Vento)
+counts
+barplot(counts, main = "Vento", xlab="Vento")
+#jogar
+counts = table(data$Jogar)
+counts
+barplot(counts, main = "Jogar", xlab="Jogar")
+```
+Exploar Colunas Numericas
+```{r}
+#temperatura
+summary(data$Temperatura)
+boxplot(data$Temperatura)
+hist(data$Temperatura)
+#umidade
+summary(data$Umidade)
+boxplot(data$Umidade)
+hist(data$Umidade)
+```
+Valores Faltantes
+```{r}
+data[!complete.cases(data),]
+```
+Aparencia, Processando dominio
+```{r}
+summary(data$Aparencia)
+#Não há dados NA
+data[is.na(data$Aparencia),]
+#opçõa -< prencher com mediana e substituir com a moda
+data[data$Aparencia == 'menos', ]$Aparencia = 'sol' 
+#procurar Aparencias novamente
+summary(data$Aparencia)
+#remover levels não usados 
+data$Aparencia = factor(data$Aparencia)
+summary(data$Aparencia)
+
+```
+Dominio da Temperatura
+```{r}
+summary(data$Temperatura)
+#fora do dominio numero - verificar temperaturas anormais
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
+#Não há dados NA
+data[is.na(data$Temperatura)]
+#preencher com medana
+median(data$Temperatura)
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura = median(data$Temperatura)
+#verificar de novo
+data[data$Temperatura < -130 | data$Temperatura > 130, ]$Temperatura
+summary(data$Temperatura)
+```
+domínio de Umidade
+```{r}
+summary(data$Umidade)
+#fora do dominio numero - verificando dados anormais
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
+#verificando NA's
+data[is.na(data$Umidade),]
+#NA -> mediana
+data[is.na(data$Umidade),]$Umidade = median(data$Umidade, na.rm = T)
+#substituição
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade = median(data$Umidade)
+#verificando dados anormais de novo 
+data[data$Umidade < 0 | data$Umidade > 100 ,]$Umidade
+summary(data$Umidade)
+```
+Vento NA's
+```{r}
+summary(data$Vento)
+data[is.na(data$Vento),]
+#substituir
+data[is.na(data$Vento),]$Vento = 'FALSO'
+#Checando NA's
+data[is.na(data$Vento),]
+summary(data$Vento)
+```
+

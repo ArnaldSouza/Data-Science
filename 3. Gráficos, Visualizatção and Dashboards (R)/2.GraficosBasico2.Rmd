@@ -1,0 +1,41 @@
+Boxplot
+```{r}
+boxplot(trees$Volume, main= "Trees", xlab = "Volume")
+boxplot(trees$Volume, main= "Trees", xlab = "Volume", col="blue", horizontal=TRUE ) 
+boxplot(trees$Volume, main="Trees", xlab = "Volume", col="blue",outline=F )
+```
+
+```{r}
+#notch
+boxplot( trees$Height, main="Trees", xlab = "Height", col="blue",  notch=TRUE )
+#dados gráficos
+boxplot.stats(trees$Height)
+#lê apenas uma informação
+boxplot.stats(trees$Height)$stats
+```
+Vários gráficoss
+```{r}
+boxplot(trees)
+```
+Agregação
+```{r}
+InsectSprays
+spray = aggregate(. ~ spray, data=InsectSprays,sum)
+spray 
+```
+Gráfico de Barraw
+```{r}
+#Executar with ctrl+shift+enter
+barplot(spray$count,col= gray.colors(6), xlab="Spray", ylab="Total", names.arg=spray$spray)
+box()
+```
+Gráfico de pizza
+```{r}
+pie(spray$count, labels= spray$spray, main="Spray",col=c(1:6))
+```
+Gráfico de pizza com legendas
+```{r}
+pie(spray$count,labels=NA,  main="Spray",col=c(1:6))
+legend("bottomright",legend=spray$spray ,cex=1, fill=c(1:6))
+```
+
