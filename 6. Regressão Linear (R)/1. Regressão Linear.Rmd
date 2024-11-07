@@ -34,7 +34,7 @@ modelo$coefficients[1] + modelo$coefficients[2] * 75
 ```
 Usando predict
 ```{r}
-predict(modelo,data.frame(dist = 75))
+predict(modelo,data.frame(dist = 22))
 ```
 Analisando melhor o modelo
 ```{r}

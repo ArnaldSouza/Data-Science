@@ -2,10 +2,11 @@
 Carros,com consumo e outros aspectos
 mpg: consumo, hp cavalos, cyl numero de cilindros, disp cilindradas
 ```{r}
-#install.packages("corrgram")
+install.packages("corrgram")
 library(corrgram)
 mtcars
 dim(mtcars)
+
 ```
 Correlação
 ```{r}
@@ -53,5 +54,5 @@ summary(modelo)$adj.r.squared
 ```
 Prevendo consumo com 200 cilindradas, 100 hp e 4 cilindros
 ```{r}
-predict(modelo,data.frame(disp = 200, hp=100, cyl=4))
-  ```
+predict(modelo,data.frame(disp = 450, hp=800, cyl=8))
+```
