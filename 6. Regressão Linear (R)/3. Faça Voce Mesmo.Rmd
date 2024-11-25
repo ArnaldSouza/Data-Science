@@ -1,5 +1,4 @@
 Regressão Linear - Faça você mesmo
----
 Importando os Dados
 ```{r}
 dados = read.csv("./dados/slr12.csv",sep = ";")
@@ -21,7 +20,7 @@ abline(modelo)
 ```{r}
 #usando o modelo
 #valor anual da franquia
-valr =  1300
+valr =  950
 #prevendo o valor
 prev =  predict(modelo,data.frame(FrqAnual = valr))
 prev = paste0("Previsão de Custo Inicial R$: ",round(prev,2))

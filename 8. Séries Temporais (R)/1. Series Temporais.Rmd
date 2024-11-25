@@ -2,7 +2,7 @@ Formação Cientista de Dados - Prof. Fernando Amaral
 Séries Temporais
 
 ```{r}
-install.packages("forecast")
+#install.packages("forecast")
 library(forecast)
 ```
 Conhecendo os dados
