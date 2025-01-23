@@ -4,7 +4,7 @@ Aprendizado baseado em instância
 ---
 
 ```{r}
-#install.packages("class")
+install.packages("class")
 library(class)
 ```
 Iris

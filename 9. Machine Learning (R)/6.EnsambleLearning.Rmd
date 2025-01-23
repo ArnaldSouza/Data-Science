@@ -4,9 +4,9 @@ Ensamble Learning
 ---
 
 ```{r}
-#install.packages('randomForest')
+install.packages('randomForest')
 library(randomForest)
-credito = read.csv('credit.csv')
+credito = read.csv('./dados/credit.csv')
 #transforma classe em fator
 credito$class = as.factor(credito$class)
 head(credito)
