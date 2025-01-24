@@ -4,8 +4,8 @@ Codificação de Categorias
 ---
 
 ```{r}
-#install.packages('mltools')
-#install.packages('data.table')
+install.packages('mltools')
+install.packages('data.table')
 library(mltools)
 library(data.table)
 ```

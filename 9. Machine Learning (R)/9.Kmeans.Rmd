@@ -4,7 +4,7 @@ Kmeans
 ---
 
 ```{r}
-#install.packages("factoextra")
+install.packages("factoextra")
 library(factoextra)
 
 ```
@@ -12,8 +12,9 @@ library(factoextra)
 Conjunto de dados iris
 ```{r}
 iris
+
 ```
-Geramso o cluster
+Geramos o cluster
 ```{r}
 cluster = kmeans(iris[1:4],centers=3)
 cluster

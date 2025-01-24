@@ -4,14 +4,14 @@ Apriori
 ---
 
 ```{r}
-#install.packages("arules")
-#install.packages("arulesViz")
+install.packages("arules")
+install.packages("arulesViz")
 library(arules)
 library(arulesViz)
 ```
 Importa as transações
 ```{r}
-transacoes = read.transactions("transacoes.txt",format="basket",sep=",")
+transacoes = read.transactions("./dados/transacoes.txt",format="basket",sep=",")
 transacoes 
 inspect(transacoes)
 image(transacoes)

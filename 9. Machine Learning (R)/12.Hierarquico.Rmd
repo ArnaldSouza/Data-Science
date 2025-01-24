@@ -4,10 +4,10 @@ Hierárquico
 ---
 
 ```{r}
-#install.packages("gridExtra", dependencies=T)
+install.packages("gridExtra", dependencies=T)
 library(factoextra)
 ```
-Cria o cluster
+Cria o cluster hierarquico
 ```{r}
 hc = hcut(iris[,-5], k = 3, hc_method = "complete", stand=T)
 hc

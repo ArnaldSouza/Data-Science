@@ -11,7 +11,7 @@ library("arulesViz")
 ```
 Transações
 ```{r}
-transacoes <-read.transactions("transacoes.txt",format="basket",sep=",")
+transacoes <-read.transactions("./dados/transacoes.txt",format="basket",sep=",")
 image(transacoes)
 ```
 Gera as regras

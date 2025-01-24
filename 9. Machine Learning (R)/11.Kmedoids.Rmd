@@ -4,7 +4,7 @@ Kmedoids
 ---
 
 ```{r}
-#install.packages("cluster")
+install.packages("cluster")
 #install.packages("factoextra")
 library(cluster)
 library(factoextra)
@@ -13,7 +13,7 @@ Gera o cluster
 ```{r}
 cluster = pam(iris[,1:4],k=3)
 ```
-Visualiza
+Visualização
 ```{r}
 cluster
 plot(cluster)

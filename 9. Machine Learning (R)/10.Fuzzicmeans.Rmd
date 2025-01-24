@@ -5,8 +5,8 @@ Fuzzi C-means
 
 ```{r}
 #install.packages("factoextra")
-#install.packages("e1071")
-#install.packages("RColorBrewer")
+install.packages("e1071")
+install.packages("RColorBrewer")
 library(factoextra)
 library(e1071)
 library(RColorBrewer)
