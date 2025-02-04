@@ -6,6 +6,7 @@ Formação Cientista de Dados - Prof. Fernando Amaral
 ```{r}
 #install.packages("rpart")
 #install.packages("forecast")
+#teste
 library(rpart)
 library(forecast)
 ```
